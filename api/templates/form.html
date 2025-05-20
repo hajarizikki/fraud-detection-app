@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Détection de Fraude</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Formulaire de Transaction</h1>
+        <form method="POST" action="/predict">
+
+            <label for="type"><i class="fas fa-credit-card"></i> Type:</label>
+            <input list="transaction-types" id="type" name="type" required>
+            <datalist id="transaction-types">
+                <option value="PAYMENT">
+                <option value="TRANSFER">
+                <option value="CASH_OUT">
+                <option value="DEBIT">
+                <option value="CASH_IN">
+            </datalist>
+
+            <label for="step"><i class="fas fa-clock"></i> Step:</label>
+            <input type="number" id="step" name="step" min="1" required>
+
+            <label for="amount"><i class="fas fa-money-bill-wave"></i> Montant:</label>
+            <input type="number" id="amount" name="amount" min="0" step="0.01" required>
+
+            <label for="oldbalanceOrg"><i class="fas fa-university"></i> Ancien solde:</label>
+            <input type="number" id="oldbalanceOrg" name="oldbalanceOrg" min="0" step="0.01" required>
+
+            <label for="newbalanceOrig"><i class="fas fa-university"></i> Nouveau solde:</label>
+            <input type="number" id="newbalanceOrig" name="newbalanceOrig" min="0" step="0.01" required>
+
+            <div class="button-container">
+                <button type="submit"><i class="fas fa-paper-plane"></i> Prédire</button>
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>

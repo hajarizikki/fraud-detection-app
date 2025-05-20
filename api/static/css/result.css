@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #f8cdda, #f88d9d); /* dégradé rose */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 1000px;
+    text-align: center;
+}
+
+/* Titre principal */
+h1 {
+    color: #e91e63;
+    margin-bottom: 20px;
+}
+
+/* Message de résultat */
+.result {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.result.safe {
+    color: #2e7d32; /* vert pour non frauduleux */
+}
+
+.result.fraud {
+    color: #c62828; /* rouge pour frauduleux */
+}
+
+/* Bouton retour */
+button {
+    margin-top: 25px;
+    padding: 10px 20px;
+    background-color: #e91e63;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #c2185b;
+}
+
+/* Conteneur flex : résumé + graphique */
+.result-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Aligne les blocs en haut */
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+/* Cartes internes */
+.summary-box,
+.chart-box {
+    background: #fff0f5;
+    padding: 25px 30px;
+    border-radius: 10px;
+    width: 350px;
+    min-height: 420px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Résumé transaction - liste */
+.summary-box ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 15px;
+    text-align: left;
+}
+
+.summary-box li {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+.summary-box li strong {
+    color: #000;
+}
+
+/* Chart canvas */
+canvas {
+    max-width: 100%;
+    height: auto;
+    margin-top: 15px;
+}

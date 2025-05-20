@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Résultat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-shield-alt"></i> Résultat de la Prédiction</h1>
+
+        {% if error %}
+            <p class="result fraud">{{ error }}</p>
+        {% else %}
+            {% if prediction == 1 %}
+                <p class="result fraud"><i class="fas fa-exclamation-triangle"></i> Transaction frauduleuse !</p>
+            {% else %}
+                <p class="result safe"><i class="fas fa-check-circle"></i> Transaction sûre.</p>
+            {% endif %}
+
+            <!-- ✅ Résumé + Graphique côte à côte -->
+            <div class="result-container">
+                <!-- 🔹 Résumé -->
+                <div class="summary-box">
+                    <h3>Résumé de la transaction</h3>
+                    <ul>
+                        <li><strong>Type :</strong> {{ type }}</li>
+                        <li><strong>Step :</strong> {{ step }}</li>
+                        <li><strong>Montant :</strong> {{ amount }} MAD</li>
+                        <li><strong>Ancien solde :</strong> {{ oldbalanceOrg }} MAD</li>
+                        <li><strong>Nouveau solde :</strong> {{ newbalanceOrig }} MAD</li>
+                    </ul>
+                </div>
+
+                <!-- 🔹 Donut Chart -->
+                <div class="chart-box">
+                    <h3>Distribution des probabilités</h3>
+                    <canvas id="probChart" width="300" height="300"></canvas>
+                </div>
+            </div>
+
+            <!-- 📊 Script Chart.js -->
+            <script>
+                const ctx = document.getElementById('probChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Sûre', 'Fraude'],
+                        datasets: [{
+                            data: {{ probability | tojson }},
+                            backgroundColor: ['#4CAF50', '#F44336'],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        cutout: '60%'
+                    }
+                });
+            </script>
+        {% endif %}
+
+        <a href="/"><button><i class="fas fa-arrow-left"></i> Retour</button></a>
+    </div>
+</body>
+</html>
