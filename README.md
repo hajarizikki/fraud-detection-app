@@ -39,7 +39,6 @@ fraud-detect/
 │ └── RF_fraud_model # Modèle RandomForest enregistré
 │
 
-├── data/ # Dataset utilisé (frauddetectionsmall.csv)
 
 │
 ├── Dockerfile
