@@ -10,12 +10,6 @@ Ce projet vise à prédire si une transaction est frauduleuse ou non à partir d
 
 ---
 
-## 📸 Aperçu de l'application
-
-<img src="static/assets/demo-result.png" alt="Aperçu Résultat" width="600"/>
-
----
-
 ## 🚀 Fonctionnalités
 
 - ✅ Interface intuitive pour saisir les détails d’une transaction
