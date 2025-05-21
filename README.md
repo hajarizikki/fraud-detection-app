@@ -51,13 +51,19 @@ fraud-detect/
 
 ## 🛠️ Technologies utilisées
 
-Python 3.9
-Flask
-PySpark (Spark MLlib)
-Docker & Docker Compose
-HTML5 / CSS3
-Chart.js
-Font Awesome
+--Python 3.9
+
+--Flask
+
+--PySpark (Spark MLlib)
+
+--Docker & Docker Compose
+
+--HTML5 / CSS3
+
+--Chart.js
+
+--Font Awesome
 
 ## ✅ Exemple de prédiction
 
