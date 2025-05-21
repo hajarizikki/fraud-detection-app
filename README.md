@@ -30,18 +30,28 @@ Ce projet vise à prédire si une transaction est frauduleuse ou non à partir d
 
 fraud-detect/
 │
+
 ├── api/ # API Flask
+
 │ ├── app.py # Serveur principal
+
 │ ├── templates/ # HTML (formulaire et résultat)
+
 │ └── static/css/ # Fichiers CSS (style, result)
+
 │
 ├── notebooks/ # Explorations et entraînement Spark ML
+
 │ └── RF_fraud_model # Modèle RandomForest enregistré
 │
+
 ├── data/ # Dataset utilisé (frauddetectionsmall.csv)
+
 │
 ├── Dockerfile
+
 ├── docker-compose.yml
+
 └── README.md
 
 ---
